@@ -2,16 +2,23 @@
   "name": "sample-dapp",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Santiago Palladino",
+    "email": "spalladino@gmail.com"
+  },
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "web3": "^1.0.0-beta.37"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile": "./scripts/compile.sh",
+    "deploy": "node ./scripts/deploy.js"
   },
   "eslintConfig": {
     "extends": "react-app"
