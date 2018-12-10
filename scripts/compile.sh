@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-solc --bin --abi --overwrite -o ./build/contracts contracts/Counter.sol && cp build/contracts/Counter.abi src/contracts/Counter.abi.json
+solc --pretty-json --combined-json=abi,bin --overwrite -o ./build/contracts contracts/Counter.sol && cp build/contracts/combined.json src/contracts/Artifacts.json

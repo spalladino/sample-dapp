@@ -1,8 +1,11 @@
-import abi from './Counter.abi.json';
+import Artifacts from './Artifacts.json';
 import { getWeb3, getAccount } from '../eth/network.js';
 
 export default function Counter(web3, address = null, options = {}) {
-  return new web3.eth.Contract(abi, address, options);
+  const artifact = Artifacts.contracts["contracts/Counter.sol:Counter"];
+  const abi = JSON.parse(artifact.abi);
+  const data = '0x' + artifact.bin;
+  return new web3.eth.Contract(abi, address, { data, ...options });
 }
 
 export async function getDeployed() {

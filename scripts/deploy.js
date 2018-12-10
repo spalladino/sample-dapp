@@ -1,5 +1,6 @@
 const Web3 = require('web3');
 const fs = require('fs');
+const Artifacts = require('../src/contracts/Artifacts.json');
 
 function getWeb3() {
   const providerURL = process.env.PROVIDER_URL || 'http://localhost:8545';
@@ -11,8 +12,9 @@ async function getSender(web3) {
 }
 
 function getCounterContract(web3) {
-  const abi = JSON.parse(fs.readFileSync('./build/contracts/Counter.abi'));
-  const data = '0x' + fs.readFileSync('./build/contracts/Counter.bin');
+  const artifact = Artifacts.contracts["contracts/Counter.sol:Counter"];
+  const abi = JSON.parse(artifact.abi);
+  const data = '0x' + artifact.bin;
   return new web3.eth.Contract(abi, null, { data });
 }
 

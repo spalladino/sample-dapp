@@ -1,6 +1,5 @@
 import React from 'react';
 import Web3 from 'web3';
-import fs from 'fs';
 import { expect } from 'chai';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -11,7 +10,7 @@ import CounterContract from '../contracts/Counter';
 configure({ adapter: new Adapter() });
 
 describe('<Counter />', function() {
-  let klazz,
+  let factory,
       contract,
       wrapper;
 
@@ -19,12 +18,11 @@ describe('<Counter />', function() {
     const web3 = new Web3('ws://localhost:9545');
     const accounts = await web3.eth.getAccounts();
     const from = accounts[0];
-    const data = '0x' + fs.readFileSync('./build/contracts/Counter.bin');
-    klazz = CounterContract(web3, null, { from, data });
+    factory = CounterContract(web3, null, { from });
   });
 
   beforeEach(async function() {
-    contract = await klazz.deploy().send({ gas: 1000000 });
+    contract = await factory.deploy().send({ gas: 1000000 });
     await contract.methods.increase().send();
   });
 
