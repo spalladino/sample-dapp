@@ -10,10 +10,17 @@ class Counter extends Component {
     };
 
     this.increaseCounter = this.increaseCounter.bind(this);
-    this.connectCounter = this.connectCounter.bind(this);
   }
 
-  async connectCounter() {
+  increaseCounter() {
+    const counter  = this.props.contract;
+    this.setState({ increasing: true, error: null });
+    return counter.methods.increase().send()
+      .on('receipt', () => this.setState({ increasing: false }))
+      .on('error', (error) => this.setState({ increasing: false, error }));
+  }
+
+  async componentDidMount() {
     const counter = this.props.contract;
       
     const initialValue = await counter.methods.value().call();
@@ -26,18 +33,6 @@ class Counter extends Component {
         this.setState({ value });
       })
     this.setState({ subscription });
-  }
-
-  increaseCounter() {
-    const counter  = this.props.contract;
-    this.setState({ increasing: true, error: null });
-    counter.methods.increase().send()
-      .on('receipt', () => this.setState({ increasing: false }))
-      .on('error', (error) => this.setState({ increasing: false, error }));
-  }
-
-  componentDidMount() {
-    this.connectCounter();
   }
 
   componentWillUnmount() {

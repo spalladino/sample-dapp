@@ -1,7 +1,7 @@
 import abi from './Counter.abi.json';
 import { getWeb3, getAccount } from '../eth/network.js';
 
-export default function Counter(web3, address, options) {
+export default function Counter(web3, address = null, options = {}) {
   return new web3.eth.Contract(abi, address, options);
 }
 
