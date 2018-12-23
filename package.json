@@ -18,7 +18,8 @@
     "test": "./scripts/test.sh",
     "eject": "react-scripts eject",
     "compile": "./scripts/compile.sh",
-    "deploy": "node ./scripts/deploy.js"
+    "deploy": "node ./scripts/deploy.js",
+    "publish": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +34,7 @@
     "chai": "^4.2.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
-    "ganache-cli": "^6.2.3"
+    "ganache-cli": "^6.2.3",
+    "gh-pages": "^2.0.1"
   }
 }
