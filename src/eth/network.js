@@ -4,7 +4,7 @@ let web3;
 
 export function getWeb3() {
   if (!web3) {
-    web3 = new Web3(process.env.REACT_APP_PROVIDER_URL || Web3.givenProvider);
+    web3 = new Web3(Web3.givenProvider);
   }
   return web3;
 }
@@ -15,5 +15,6 @@ export function hasProvider() {
 
 export async function getAccount() {
   const web3 = getWeb3();
-  return (await web3.eth.getAccounts())[0];
+  const accounts = await web3.eth.getAccounts();
+  return accounts[0];
 }

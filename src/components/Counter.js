@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Counter.css';
 
 class Counter extends Component {
   constructor(props) {
@@ -42,13 +43,20 @@ class Counter extends Component {
 
   render() {
     const { value, increasing, error } = this.state;
+    const { contract } = this.props;
     if (!value) return "Loading";
 
     return (
-      <div>
-        <div>Value: { value.toString() }</div>
-        <button disabled={!!increasing} onClick={this.increaseCounter}>Increase</button>
-        <div>{ error }</div>
+      <div className="Counter">
+        <div>Counter value: { value.toString() }</div>
+        <div className="Counter-address">Address: { contract.options.address }</div>
+        <button disabled={!!increasing} onClick={this.increaseCounter}>
+          Increase counter
+        </button>
+        <div className="Counter-notifications">
+          <div>{ increasing && "Awaiting transaction" }</div>
+          <div>{ error && error.message }</div>
+        </div>
       </div>
     );
   }
