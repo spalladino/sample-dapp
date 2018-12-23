@@ -1,13 +1,13 @@
 {
-  "main.css": "/static/css/main.1b43dffb.chunk.css",
-  "main.js": "/static/js/main.8d30ee7e.chunk.js",
-  "main.js.map": "/static/js/main.8d30ee7e.chunk.js.map",
-  "static/js/1.ccbb36f4.chunk.js": "/static/js/1.ccbb36f4.chunk.js",
-  "static/js/1.ccbb36f4.chunk.js.map": "/static/js/1.ccbb36f4.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.1b43dffb.chunk.css.map": "/static/css/main.1b43dffb.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.3501ce2e398e8294feaa65e09f1b8a57.js": "/precache-manifest.3501ce2e398e8294feaa65e09f1b8a57.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/sample-dapp/static/css/main.1b43dffb.chunk.css",
+  "main.js": "/sample-dapp/static/js/main.3e1b906a.chunk.js",
+  "main.js.map": "/sample-dapp/static/js/main.3e1b906a.chunk.js.map",
+  "static/js/1.ccbb36f4.chunk.js": "/sample-dapp/static/js/1.ccbb36f4.chunk.js",
+  "static/js/1.ccbb36f4.chunk.js.map": "/sample-dapp/static/js/1.ccbb36f4.chunk.js.map",
+  "runtime~main.js": "/sample-dapp/static/js/runtime~main.3ff2094d.js",
+  "runtime~main.js.map": "/sample-dapp/static/js/runtime~main.3ff2094d.js.map",
+  "static/css/main.1b43dffb.chunk.css.map": "/sample-dapp/static/css/main.1b43dffb.chunk.css.map",
+  "index.html": "/sample-dapp/index.html",
+  "precache-manifest.d6c2c19125825eec9a17fe2bdd4980d4.js": "/sample-dapp/precache-manifest.d6c2c19125825eec9a17fe2bdd4980d4.js",
+  "service-worker.js": "/sample-dapp/service-worker.js"
 }
