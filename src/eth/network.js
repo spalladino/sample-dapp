@@ -14,7 +14,6 @@ export function hasProvider() {
 }
 
 export async function getAccount() {
-  const web3 = getWeb3();
-  const accounts = await web3.eth.getAccounts();
+  const accounts = await window.ethereum.enable();
   return accounts[0];
 }
