@@ -6,7 +6,7 @@ class Counter extends Component {
     super(props);
     this.state = { 
       value: null, 
-      optimistic: false,
+      error: null,
       increasing: false
     };
   }
@@ -16,11 +16,8 @@ class Counter extends Component {
     this.setState({ increasing: true, error: null });
     
     return counter.methods.increase().send()
-      .on('transactionHash', () => {
-        this.setState(({ value }) => ({ value: (+value) + 1, optimistic: true }))
-      })
       .on('receipt', () => {
-        this.setState({ increasing: false, optimistic: false })
+        this.setState({ increasing: false })
       })
       .on('error', (error) => {
         this.setState({ increasing: false, error })
@@ -41,13 +38,13 @@ class Counter extends Component {
   }
 
   render() {
-    const { value, increasing, error, optimistic } = this.state;
+    const { value, increasing, error } = this.state;
     const { contract } = this.props;
     if (!value) return "Loading";
 
     return (
       <div className="Counter">
-        <div className={optimistic ? "Counter-unconfirmed" : undefined}>
+        <div>
           Counter value: { value.toString() }
         </div>
         <div className="Counter-address">Address: { contract.options.address }</div>
